@@ -14,6 +14,7 @@ func newRoadworks(api *Client) *roadworks {
 	}
 }
 
+// Roadwork represents a roadwork
 type Roadwork struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -48,6 +49,7 @@ type GetDetailsForRoadworkResp struct {
 	Roadwork *Roadwork
 }
 
+// GetAllForRoad returns all roadworks for the provided road
 func (r *roadworks) GetAllForRoad(ctx context.Context, roadID string) (*GetRoadworksResp, error) {
 	jsonResp := &GetRoadworksResp{}
 
@@ -61,6 +63,7 @@ func (r *roadworks) GetAllForRoad(ctx context.Context, roadID string) (*GetRoadw
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the roadwork
 func (r *roadworks) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForRoadworkResp, error) {
 	jsonResp := &GetDetailsForRoadworkResp{Roadwork: &Roadwork{}}
 

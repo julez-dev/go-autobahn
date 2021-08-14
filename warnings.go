@@ -14,6 +14,7 @@ func newWarnings(api *Client) *warnings {
 	}
 }
 
+// Warning represents a warning
 type Warning struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -43,6 +44,7 @@ type GetDetailsForwarningResp struct {
 	Warning *Warning `json:"warning"`
 }
 
+// GetAllForRoad returns all warnings for the provided road
 func (w *warnings) GetAllForRoad(ctx context.Context, roadID string) (*GetWarningsResp, error) {
 	jsonResp := &GetWarningsResp{}
 
@@ -56,6 +58,7 @@ func (w *warnings) GetAllForRoad(ctx context.Context, roadID string) (*GetWarnin
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the provided warning
 func (w *warnings) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForwarningResp, error) {
 	jsonResp := &GetDetailsForwarningResp{Warning: &Warning{}}
 

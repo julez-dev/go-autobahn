@@ -12,6 +12,7 @@ func newClosures(api *Client) *closures {
 	}
 }
 
+// Closure represents a closure
 type Closure struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -41,6 +42,7 @@ type GetDetailsForClosureResp struct {
 	Closure *Closure `json:"closure"`
 }
 
+// GetAllForRoad returns all closures for the provided road
 func (c *closures) GetAllForRoad(ctx context.Context, roadID string) (*GetClosuresResp, error) {
 	jsonResp := &GetClosuresResp{}
 
@@ -54,6 +56,7 @@ func (c *closures) GetAllForRoad(ctx context.Context, roadID string) (*GetClosur
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the provided closure
 func (c *closures) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForClosureResp, error) {
 	jsonResp := &GetDetailsForClosureResp{Closure: &Closure{}}
 

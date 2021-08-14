@@ -16,6 +16,7 @@ type GetAllRoadsResp struct {
 	Roads []string `json:"roads"`
 }
 
+// GetAll returns all roads
 func (r *roads) GetAll(ctx context.Context) (*GetAllRoadsResp, error) {
 	jsonResp := &GetAllRoadsResp{}
 

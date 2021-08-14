@@ -12,6 +12,7 @@ func newElectricChargingStations(api *Client) *electricChargingStations {
 	}
 }
 
+// ElectricChargingStation represents a electric charging station
 type ElectricChargingStation struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -40,6 +41,7 @@ type GetDetailsForElectricChargingStationResp struct {
 	ElectricChargingStation *ElectricChargingStation `json:"electric_charging_station"`
 }
 
+// GetAllForRoad returns all electric charging stations for the provided road
 func (e *electricChargingStations) GetAllForRoad(ctx context.Context, roadID string) (*GetElectricChargingStationsResp, error) {
 	jsonResp := &GetElectricChargingStationsResp{}
 
@@ -53,6 +55,7 @@ func (e *electricChargingStations) GetAllForRoad(ctx context.Context, roadID str
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the provided electric charging station
 func (e *electricChargingStations) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForElectricChargingStationResp, error) {
 	jsonResp := &GetDetailsForElectricChargingStationResp{ElectricChargingStation: &ElectricChargingStation{}}
 

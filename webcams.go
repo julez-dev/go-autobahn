@@ -12,6 +12,7 @@ func newWebcams(api *Client) *webcams {
 	}
 }
 
+// Webcam represents a webcam
 type Webcam struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -43,6 +44,7 @@ type GetDetailsForWebcamResp struct {
 	Webcam *Webcam `json:"webcam"`
 }
 
+// GetAllForRoad returns all webcams for the provided road
 func (w *webcams) GetAllForRoad(ctx context.Context, roadID string) (*GetWebcamsResp, error) {
 	jsonResp := &GetWebcamsResp{}
 
@@ -56,6 +58,7 @@ func (w *webcams) GetAllForRoad(ctx context.Context, roadID string) (*GetWebcams
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the provided webcam
 func (w *webcams) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForWebcamResp, error) {
 	jsonResp := &GetDetailsForWebcamResp{Webcam: &Webcam{}}
 

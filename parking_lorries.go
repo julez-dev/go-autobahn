@@ -15,6 +15,7 @@ func newParkingLorries(api *Client) *parkingLorries {
 	}
 }
 
+// ParkingLorry represents a parking lorry
 type ParkingLorry struct {
 	Extent              string   `json:"extent"`
 	Identifier          string   `json:"identifier"`
@@ -47,6 +48,7 @@ type GetDetailsForParkingLorryResp struct {
 	ParkingLorry *ParkingLorry `json:"parking_lorry"`
 }
 
+// GetAllForRoad returns all parking lorries for the provided road
 func (pl *parkingLorries) GetAllForRoad(ctx context.Context, roadID string) (*GetParkingLorriesResp, error) {
 	jsonResp := &GetParkingLorriesResp{}
 
@@ -61,6 +63,7 @@ func (pl *parkingLorries) GetAllForRoad(ctx context.Context, roadID string) (*Ge
 	return jsonResp, err
 }
 
+// GetDetailsFor returns details for the provided parking lorry
 func (pl *parkingLorries) GetDetailsFor(ctx context.Context, identifier string) (*GetDetailsForParkingLorryResp, error) {
 	jsonResp := &GetDetailsForParkingLorryResp{ParkingLorry: &ParkingLorry{}}
 

@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// CustomTime is a wrapper struct to implement a custom UnmarshalJSON method
 type CustomTime struct {
 	time.Time
 }
