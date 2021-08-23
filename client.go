@@ -40,7 +40,7 @@ func (c *Client) doRequest(ctx context.Context, method string, url string, v int
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("http status (%s) not ok or empty body", resp.Status)
+		return fmt.Errorf("invalid status code returned (%s)", resp.Status)
 	}
 
 	if err := json.NewDecoder(resp.Body).Decode(v); err != nil {
